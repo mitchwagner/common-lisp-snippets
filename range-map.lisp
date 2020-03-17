@@ -2,6 +2,10 @@
 ;; that is, perform a linear transform to convert x in 
 ;; [a, b] to y in [c, d].
 
+;; We'll use pairs to represent ranges
+(defun range-min (r) (car r))
+(defun range-max (r) (cdr r))
+
 ;; Steps: 
 ;; 1) Scale value in former range to 0-1
 ;;    (x - a) / (b - a) 
@@ -12,9 +16,6 @@
 ;; 3) Add offset from 0
 ;;    (2) + c
 ;;
-(defun range-min (r) (car r))
-(defun range-max (r) (cdr r))
-
 (defun range-map (r1 r2 x)
   (let ((a (range-min r1))
         (b (range-max r1))
